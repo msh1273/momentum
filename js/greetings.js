@@ -10,6 +10,10 @@ function handleLinkClick(event) {
   loginForm.classList.add(HIDDEN_CLASSNAME);
   const username = loginInput.value;
   localStorage.setItem(USERNAME_KEY, username);
+  paintGreetings(username);
+}
+
+function paintGreetings(username) {
   greeting.innerHTML = `Hello ${username}`;
   greeting.classList.remove(HIDDEN_CLASSNAME);
 }
@@ -22,5 +26,5 @@ if (savedUserName === null) {
   loginForm.addEventListener("submit", handleLinkClick);
 } else {
   // show the greeting
-  greeting.classList.remove(HIDDEN_CLASSNAME);
+  paintGreetings(savedUserName);
 }
